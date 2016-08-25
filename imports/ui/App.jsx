@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 import NavBar from './shared/NavBar.jsx'
-class Home extends Component {
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+class App extends Component {
+  getChildContext () {
+    return { muiTheme: getMuiTheme() }
+  }
   render () {
     return (
       <div>
@@ -11,4 +15,8 @@ class Home extends Component {
   }
 }
 
-export default Home
+App.childContextTypes = {
+  muiTheme: React.PropTypes.object.isRequired
+}
+
+export default App
