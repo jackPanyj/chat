@@ -1,8 +1,8 @@
 import React from 'react'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
-
-import SignUp from '../../ui/SignUp.jsx'
-import Login from '../../ui/Login.jsx'
+import Chat from '../../ui/Chat.jsx';
+import SignUp from '../../ui/auth/SignUp.jsx'
+import Login from '../../ui/auth/Login.jsx'
 import Home from '../../ui/Home.jsx'
 import App from '../../ui/App.jsx'
 import Account from '../../ui/Account.jsx';
@@ -14,6 +14,7 @@ export const renderRoutes = () => (
       <Route path = "/login" component = {Login} />
       <Route path = "/signup" component = {SignUp} />
       <Route path="/account" component={Account} />
+      <Route path="/chat" component={Chat} />
     </Route>
   </Router>
 )
