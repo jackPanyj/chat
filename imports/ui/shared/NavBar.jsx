@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { white, blue } from '../styles/colors';
 import typography from '../styles/typography';
 import { Tabs, Tab } from 'material-ui/Tabs'
+import { Meteor } from 'meteor/meteor'
 let styles = {
       root: {
         height: '64px',
@@ -36,17 +37,20 @@ class NavBar extends Component {
     this.setState({ tabIndex: this.getSelectedIndex() })
   }
 
-  componentWillReceiveProps(nextProps, nextContext, a) {
-   this.setState({
-     tabIndex: this.getSelectedIndex()
-   })
+  componentWillReceiveProps() {
+    setTimeout(() => {
+       this.setState({
+         tabIndex: this.getSelectedIndex()
+       });
+     }, 0)
   }
 
   getSelectedIndex () {
     const isActive = this.context.router.isActive
     return isActive('/', true) ? '/' :
            isActive('/signup', true) ? '/signup' :
-           isActive('/login', true) ? '/login' : '/'
+           isActive('/login', true) ? '/login' :
+           isActive('/account', true) ? '/account' : ''
   }
 
   handleChange (value) {
@@ -54,6 +58,7 @@ class NavBar extends Component {
     this.setState({tabIndex: value})
   }
   render () {
+    let currentUser = Meteor.userId()
     return (
       <div style = {styles.root}>
           <Tabs onChange = {e => this.handleChange(e)}
@@ -63,7 +68,7 @@ class NavBar extends Component {
                 tabItemContainerStyle={{backgroundColor: 'transparent'}}
           >
              <Tab label='Home' value = "/" style={styles.tab} />
-             <Tab label='Sign Up' value = "/signup" style={styles.tab} />
+             <Tab label={currentUser ? 'account' : 'sign up'} value={currentUser ? '/account' : '/signup'} style={styles.tab} />
              <Tab label='Log In' value = "/login" style={styles.tab} />
          </Tabs>
       </div>
