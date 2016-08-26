@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router'
+import { white } from './styles/colors.jsx'
+import typography from './styles/typography'
 import Radium from 'radium'
 class Home extends Component {
   getStyles() {
@@ -17,9 +19,9 @@ class Home extends Component {
       },
       slogan: {
         textAlign: 'center',
-        color: '#fff',
+        color: white,
         textTransform: 'uppercase',
-        fontSize: '25px',
+        fontSize: typography.fontMiddleSize,
         fontWeight: '500',
         width: '100%',
         paddingTop: '50px',
