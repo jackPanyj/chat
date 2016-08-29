@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { white, blue } from '../styles/colors';
 import typography from '../styles/typography';
 import { Tabs, Tab } from 'material-ui/Tabs'
+import LogOutMenu from '../auth/LogOutMenu.jsx';
 let styles = {
       root: {
         height: '64px',
@@ -71,6 +72,7 @@ class NavBar extends Component {
              <Tab label={currentUser ? 'account' : 'sign up'} value={currentUser ? '/account' : '/signup'} style={styles.tab} />
              <Tab label={currentUser ? 'chat' : 'login'} value = {currentUser ? '/chat' : '/login'} style={styles.tab} />
          </Tabs>
+         {currentUser ? <LogOutMenu username = {this.props.userInfo ? this.props.userInfo.username : ''} /> : ''}
       </div>
     )
   }
