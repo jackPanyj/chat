@@ -16,7 +16,7 @@
 查看效果：
 
 1. 首先本地安装 `meteor`: `curl https://install.meteor.com/ | sh`
-2. `git clone https://github.com/jackPanyj/bird.git`
+2. `git clone https://github.com/jackPanyj/chat.git`
 3. `cd bird && npm install`
 4. `meteor`
 
