@@ -17,7 +17,7 @@
 
 1. 首先本地安装 `meteor`: `curl https://install.meteor.com/ | sh`
 2. `git clone https://github.com/jackPanyj/chat.git`
-3. `cd bird && npm install`
+3. `cd chat && npm install`
 4. `meteor`
 
 然后就可以在 [http://localhost:3000](http://localhost:3000) 访问了。
